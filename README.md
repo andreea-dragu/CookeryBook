@@ -1,6 +1,16 @@
 # CookeryBook
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+## Steps to install
+- ```
+    git clone
+  ```
+- ```
+    npm i
+  ```
+- ```
+    ng serve --open
+  ```
 
 ## Development server
 
