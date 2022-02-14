@@ -1,0 +1,73 @@
+<section class="data-iterator">
+  <ng-container *ngIf="items | search: searchQuery as result">
+
+    <header class="data-iterator__header" >
+      <div class="sort">
+        <select class="sort__by" [(ngModel)]="sortBy">
+          <option class="sort__option" *ngFor="let key of objectProperties" value="{{key}}">{{key |titlecase}}</option>
+        </select>
+          <app-button styleClasses="button--icon button--paddingSmall" type="button" [isActive]="true ? sortDirection === 'ascending' : false"  (click)=" onChangeSortDirection('ascending') ">&#8593;</app-button>
+          <app-button styleClasses="button--icon button--paddingSmall" type="button" [isActive]="true ? sortDirection === 'descending' : false" (click)=" onChangeSortDirection('descending') ">&#8595;</app-button>
+      </div>
+      <div class="search">
+        <span class="search__icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></span>
+        <input class="search__input " type="search" placeholder="Search... " [(ngModel)]="searchQuery" (keyup)="changePage('firstPage', result.length)">
+      </div>
+    </header>
+
+    <main class="data-iterator__content">
+        <ng-container *ngIf="!grid && !customGrid">
+          <table class="table">
+            <thead class="table__head">
+              <tr class="table__head__items">
+                <th class="table__head__item" *ngFor="let key of objectProperties">{{ key |titlecase }}</th>
+              </tr>
+            </thead>
+            <tbody class="table__body" *ngIf="result.length > 0; else noResults">
+              <tr class="table__body__items" *ngFor="let item of result | sort: sortBy: sortDirection | pagination: current_page: items_per_page">
+                <td class="table__body__item" *ngFor="let key of objectProperties">{{ item[key] }}</td>
+              </tr>
+            </tbody>
+            <ng-template #noResults>
+              <div class="table__noResults">No Results</div>
+            </ng-template>
+          </table>
+        </ng-container>
+        <ng-container *ngIf="grid">
+          <div class="grid" [style]="'grid-template-columns: repeat('+repeatColGrid+', minmax(350px, 1fr))'" *ngIf="result.length > 0; else noResults">
+            <div class="grid__item" *ngFor="let item of result | sort: sortBy: sortDirection | pagination: current_page: items_per_page">
+              <ng-container *ngIf="!customGrid">
+                <div *ngFor="let key of objectProperties" >
+                  {{key |titlecase}} :
+                  {{ item[key] }}
+                </div>
+              </ng-container>
+              <ng-container *ngIf="customGrid">
+                <ng-container [ngTemplateOutlet]="customGridTemplate" [ngTemplateOutletContext]="{$implicit: item}"></ng-container>
+              </ng-container>
+            </div>
+          </div>
+          <ng-template #noResults>
+            <div class="grid__noResults">No Results</div>
+          </ng-template>
+        </ng-container>
+    </main>
+
+    <footer class="data-iterator__footer" *ngIf="result.length !== 0">
+      <div class="pagination">
+        <div class="page-info">Page {{current_page}} from {{getTotalPagesNumber(result.length)}}</div>
+        <select class="select-items" [(ngModel)]="items_per_page" (change)="changePage('firstPage', result.length)">
+          <option *ngFor="let item_per_page of array_items_per_page" [value]="item_per_page">{{item_per_page}}</option>
+        </select>
+        <div class="navigation">
+          <app-button styleClasses="button--primaryButton button--paddingSmall" type="button" [disabled]="true ? current_page === 1 || result.length === 0 : false" (click)="changePage('firstPage', result.length)">&#x0003C;&#x0003C;</app-button>
+          <app-button styleClasses="button--primaryButton button--paddingSmall" type="button" [disabled]="true ? current_page === 1 || result.length === 0 : false" (click)="changePage('prevPage',  result.length)">&#x0003C;</app-button>
+          <app-button styleClasses="button--primaryButton button--paddingSmall" type="button" [disabled]="true ? current_page === getTotalPagesNumber(result.length) || result.length === 0 : false" (click)="changePage('nextPage',result.length)">&#x0003E;</app-button>
+          <app-button styleClasses="button--primaryButton button--paddingSmall" type="button" [disabled]="true ? current_page === getTotalPagesNumber(result.length) || result.length === 0 : false" (click)="changePage('lastPage', result.length)">&#x0003E;&#x0003E;</app-button>
+        </div>
+      </div>
+    </footer>
+
+  </ng-container>
+</section>
+

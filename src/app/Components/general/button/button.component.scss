@@ -1,0 +1,123 @@
+.button {
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 2px 2px 3px var(--grayColor);
+
+  &:disabled, &:disabled:hover, &:disabled.active {
+    background: var(--grayColor);
+    color: var(--blackColor);
+    cursor: not-allowed;
+  }
+
+  &--primaryButton {
+    background: var(--primaryColor);
+    color: var(--blackColor);
+
+    &:hover {
+      background: var(--blackColor);
+      color: var(--primaryColor);
+    }
+  }
+
+  &--secondaryButton {
+    background: var(--secondaryColor);
+    color: var(--blackColor);
+
+    &:hover, &.active {
+      background: var(--primaryColor);
+      color: var(--blackColor);
+    }
+  }
+
+  &--mixedButton {
+    background: var(--primaryColor);
+    color: var(--blackColor);
+
+    &:hover {
+      background: var(--secondaryColor);
+      color: var(--blackColor);
+    }
+  }
+
+  &--blackButton {
+    background: var(--blackColor);
+    color: var(--primaryColor);
+
+    &:hover {
+      background: var(--blackColor);
+      color: var(--secondaryColor);
+    }
+  }
+
+  &--redishButton {
+    background: var(--brownColor);
+    color: var(--secondaryColor);
+
+    &:hover {
+      background: var(--redishColor);
+      color: var(--secondaryColor);
+    }
+  }
+
+  &--icon {
+    background: var(--secondaryColor);
+    color: var(--blackColor);
+
+    &:hover {
+      background: var(--blackColor);
+      color: var(--primaryColor);
+    }
+    &.active {
+      background: var(--primaryColor);
+      color: var(--blackColor);
+    }
+  }
+
+  &--transparentIcon {
+    color: var(--secondaryColor);
+    background: none;
+
+    &:hover, &.active {
+      color: var(--primaryColor);
+      background: none;
+    }
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &--paddingSmall {
+    padding: 6px 8px;
+  }
+
+  &--paddingBox {
+    padding: 12px;
+  }
+
+  &--paddingMedium {
+    padding: 12px 20px;
+  }
+}
+
+// Responsive
+@media all and (max-width: 1280px) {
+  .button {
+    font-size: 0.8em;
+
+    &--paddingMedium {
+      padding: 8px 14px;
+    }
+  }
+}
+
+@media all and (max-width: 980px) {
+  .button {
+    &--paddingBox {
+      padding: 10px;
+    }
+  }
+}

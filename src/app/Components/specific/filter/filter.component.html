@@ -1,0 +1,13 @@
+<div class="filter">
+  <h3 class="filter__title">{{filterName | titlecase}}</h3>
+  <div class="checkbox" *ngFor="let item of filterItems; index as i" >
+    <label *ngIf="filterName !== 'time'" class="checkbox__label" for="{{filterName}}-{{item.id}}">
+      <input class="checkbox__input" type="checkbox" id="{{filterName}}-{{item.id}}" name="{{filterName}}" value="{{item.id}}">
+      <span class="checkbox__text"> {{item.name |titlecase}} </span>
+    </label>
+    <label *ngIf="filterName === 'time'" class="checkbox__label" for="{{filterName}}-{{item}}">
+      <input class="checkbox__input" type="checkbox" id="{{filterName}}-{{item}}" name="{{filterName}}" value="{{item}}">
+      <span class="checkbox__text">{{item }} mins</span>
+    </label>
+  </div>
+</div>

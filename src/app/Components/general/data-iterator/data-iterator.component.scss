@@ -1,0 +1,128 @@
+.data-iterator {
+  margin: 0 auto;
+  display: grid;
+  padding: 0 50px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    .sort {
+      &__by, &__option {
+        padding: 6px;
+        box-shadow: 2px 2px 3px var(--grayColor);
+        font-size: 1em;
+        color: var(--blackColor);
+        text-shadow: 1px 1px var(--primaryColor);
+        background: var(--secondaryColor);
+        border: none;
+
+        &:focus { outline: none; }
+      }
+    }
+
+    .search {
+      box-sizing: border-box;
+      position: relative;
+
+      &__icon {
+        font-size: 1.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        padding-bottom: 4px;
+        background: var(--primaryColor);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &__input {
+        padding: 6px 6px 6px 46px;
+        font-size: 1.1em;
+        border: none;
+        background: var(--secondaryColor);
+        box-shadow: 2px 2px 3px var(--grayColor);
+
+        &::-webkit-input-placeholder { color: var(--blackColor); }
+        &::-moz-placeholder { color: var(--blackColor); }
+        &:-ms-input-placeholder { color: var(--blackColor); }
+        &:-moz-placeholder { color: var(--blackColor); }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    margin-bottom: 50px;
+    .grid {
+      display: grid;
+      gap: 40px;
+
+      &__noResults {
+        text-align: center;
+        box-shadow: 2px 2px 3px var(--primaryColor);
+        text-shadow: 1px 1px var(--secondaryColor);
+        font-size: 2em;
+      }
+    }
+  }
+
+  &__footer {
+    .pagination {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 40px;
+      justify-content: right;
+      text-align: right;
+      align-items: center;
+
+      .page-info {
+        box-shadow: 2px 2px 3px var(--grayColor);
+        text-shadow: 1px 1px var(--primaryColor);
+        padding: 6px 10px;
+      }
+
+      .select-items {
+        font-size: 1.1em;
+        text-shadow: 1px 1px var(--primaryColor);
+        background: var(--secondaryColor);
+        padding: 6px 10px;
+        box-shadow: 2px 2px 3px var(--grayColor);
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+      .navigation {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 8px;
+        align-items: center;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+.page--categories {
+
+  .grid-two-columns {
+    column-gap: 0;
+    row-gap: 56px;
+  }
+
+  .categories {
+    max-width: 1600px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .category {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    background-position: center;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      margin: 0;
+      text-shadow: 2px 5px var(--blackColor);
+    }
+
+    &:hover {
+      filter: saturate(2);
+
+      .title {
+        color: var(--secondaryColor);
+      }
+    }
+
+    &.even {
+      -webkit-clip-path: polygon(0 0, 92% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 0, 92% 0, 100% 100%, 0% 100%);
+    }
+
+    &.odd{
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
+    }
+
+  }
+
+
+}

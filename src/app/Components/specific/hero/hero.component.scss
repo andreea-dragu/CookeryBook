@@ -1,0 +1,17 @@
+.hero {
+  margin-bottom: 50px;
+  background-position: center, bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: var(--primaryColor);
+    text-shadow: 2px 5px var(--blackColor);
+    line-height: 1;
+  }
+}

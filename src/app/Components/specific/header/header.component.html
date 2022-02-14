@@ -1,0 +1,35 @@
+<header class="header" [ngClass]="{'home': currentUrl === '/'}">
+  <nav class="header__navigation navigation" [ngClass]="{'active' : showMobileMenu === true}">
+    <ul class="navigation__list">
+      <li class="navigation__li">
+        <a class="navigation__item" (click)="showMobileMenu = false" routerLink="categories" routerLinkActive="active-link">CATEGORIES</a>
+      </li>
+      <li class="navigation__li">
+        <a class="navigation__item" (click)="showMobileMenu = false" routerLink="recipes" routerLinkActive="active-link">RECIPES</a>
+      </li>
+      <li class="navigation__li" *ngIf="showContainer === false">
+        <a class="navigation__logo" routerLink="/"><img class="logo" src="../../../assets/images/cookeryBook.png" alt="logo"></a>
+      </li>
+      <li class="navigation__li">
+        <a class="navigation__item" (click)="showMobileMenu = false" routerLink="about" routerLinkActive="active-link">ABOUT</a>
+      </li>
+      <li class="navigation__li">
+        <a class="navigation__item" (click)="showMobileMenu = false" routerLink="contact" routerLinkActive="active-link">CONTACT</a>
+      </li>
+    </ul>
+    <app-button *ngIf="isLogged" styleClasses="button--mixedButton button--paddingSmall" class="navigation__logOut" (click)="logOut()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-12h4v12zm4.213-10.246l-1.213 1.599c2.984 1.732 5 4.955 5 8.647 0 5.514-4.486 10-10 10s-10-4.486-10-10c0-3.692 2.016-6.915 5-8.647l-1.213-1.599c-3.465 2.103-5.787 5.897-5.787 10.246 0 6.627 5.373 12 12 12s12-5.373 12-12c0-4.349-2.322-8.143-5.787-10.246z"/></svg> Log out</app-button>
+  </nav>
+  <div class="mobileNavigation" *ngIf="showContainer">
+    <a class="mobileNavigation__logo" routerLink="/" (click)="showMobileMenu = false"><img class="logo" src="../../../assets/images/cookeryBook.png" alt="logo"></a>
+    <div class="mobileNavigation__hamburger" (click)="showMobileMenu = !showMobileMenu">
+      <ng-container *ngIf="showMobileMenu === false">
+        <div></div>
+        <div></div>
+        <div></div>
+      </ng-container>
+      <ng-container *ngIf="showMobileMenu === true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+      </ng-container>
+    </div>
+  </div>
+</header>

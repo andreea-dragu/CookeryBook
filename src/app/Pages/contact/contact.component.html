@@ -1,0 +1,22 @@
+<div class="page page--contact">
+  <app-hero [heroImages]="'assets/images/contactHero.jpg'"> Contact </app-hero>
+  <div class="page__content">
+    <section class="container">
+      <div class="grid-columns">
+        <div class="column">
+          <h2 class="title">Get in touch:</h2>
+          <div class="text">
+            <p>Our Customer Happiness team are happy to help.</p>
+            <p><span class="text--bold">Address: </span> <span> 1018 Jarvis Street, Salamanca, NY, 14779</span></p>
+            <p><span class="text--bold">Phone: </span> <span> 716-945-6408 </span></p>
+            <p><span class="text--bold">Email: </span> <span> cookerybook.co@gmail.com</span></p>
+          </div>
+          <app-button styleClasses="button--primaryButton button--paddingMedium" type="button" (click)="openMail()">Leave us a message</app-button>
+        </div>
+        <div class="column">
+          <img class="image" src="../../assets/images/slider/contact.jpg" alt="contact">
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<button
+  [type]="type"
+  class="button {{styleClasses}}"
+  id="{{id}}"
+  [disabled]="disabled === true"
+  [routerLink]="routerLink ? routerLink : null"
+  [class.active] = "isActive === true">
+  <ng-content></ng-content>
+</button>

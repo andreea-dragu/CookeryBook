@@ -1,0 +1,69 @@
+.item {
+  box-sizing: border-box;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+  text-shadow: 1px 1px var(--primaryColor);
+  position: relative;
+  height: 100%;
+
+  &__deleteIcon {
+    line-height: 1;
+    position: absolute;
+    font-weight: 500;
+    padding: 4px 6px;
+    top: 0;
+    left: 0;
+    color: black;
+    background-color: var(--primaryColor);
+    cursor: pointer;
+    svg {
+      fill: var(--blackColor);
+    }
+
+    &:hover {
+      svg { fill: var(--secondaryColor); }
+    }
+  }
+
+  &__difficulty {
+    font-weight: 900;
+    padding: 6px 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primaryColor);
+    color: var(--blackColor);
+  }
+
+  &__image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  &__textWrapper {
+    padding: 20px 20px;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    width: 100%;
+    display: inline-flex;
+    justify-content: flex-end;
+  }
+}

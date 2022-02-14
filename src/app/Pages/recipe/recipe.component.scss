@@ -1,0 +1,53 @@
+.page--recipe {
+  margin-top: 50px;
+
+  .recipe-content {
+    margin-bottom: 50px;
+  }
+
+  .image { width: 100%; }
+  .details { margin-bottom: 30px; }
+
+  .category {
+    display: inline-block;
+    text-shadow: 1px 1px var(--primaryColor);
+    padding: 4px 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primaryColor);
+      text-shadow: 1px 1px var(--blackColor);
+    }
+  }
+
+  .time, .difficulty {
+    span { margin-right: 8px;}
+  }
+
+  .difficultyIcon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+  }
+
+  .ingredients__list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+
+  .ingredient {
+    font-style: italic;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px var(--primaryColor);
+    &__icon {
+      margin-right: 10px;
+    }
+  }
+
+  .subtitle {
+    text-decoration: underline;
+  }
+
+}

@@ -1,0 +1,280 @@
+/* You can add global styles to this file, and also import other style files */
+$ng-select-highlight: var(--primaryColor) !default;
+$ng-select-primary-text: var(--blackColor) !default;
+$ng-select-secondary-text: var(--blackColor) !default;
+@import "../node_modules/@ng-select/ng-select/scss/material.theme.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;0,600;0,700;1,600&family=Quicksand:wght@300;400;500;600&display=swap');
+
+:root {
+  --primaryColor: #DDA300;
+  --secondaryColor: #F5DAB6;
+  --blackColor: #000000;
+  --whiteColor: #FFFFFF;
+  --grayColor: #545454;
+  --redishColor: #922F15;
+  --brownColor: #5A3B01;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background: var(--secondaryColor);
+  font-size: 1.1em;
+  padding-bottom: 100px;
+}
+
+a { text-decoration: none; }
+
+li { list-style: none; }
+
+h1 { font-size: 3.2em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.3em; }
+
+
+.title {
+  margin-bottom: 20px;
+  color: var(--primaryColor);
+  text-shadow: 2px 2px var(--blackColor);
+}
+
+.subtitle {
+  text-shadow: 1px 1px var(--primaryColor);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.text {
+  line-height: 28px;
+  font-size: 1em;
+  color: var(--blackColor);
+  text-shadow: 1px 1px var(--primaryColor);
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.text--bold {
+  font-weight: 900;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-columns {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 50px;
+}
+
+.grid-two-columns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.flex-align-items {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  border-radius: 10px;
+  max-width: 600px;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.clockIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+
+// Form Add Recipe and Login
+
+.form {
+  &__field {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  &__label {
+    font-size: 20px;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    pointer-events: none;
+    transition: font-size 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &--alwaysStatic {
+      top: 0;
+      font-size: 12px;
+    }
+  }
+
+  &__input {
+    font-size: 20px;
+    color: var(--primaryColor);
+    padding-top: 14px;
+    box-sizing: content-box;
+    height: 30px;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--secondaryColor);
+    transition: border 1s ease-in-out;
+
+    &:focus {
+      border-color: var(--primaryColor);
+    }
+
+    // &:valid + .form__label,
+    &:focus + .form__label,
+    &.ng-touched + .form__label {
+      top: 0;
+      font-size: 12px;
+    }
+
+    &--reverseColor {
+      border-color: var(--blackColor);
+      color: var(--blackColor);
+    }
+
+    &--typeTextarea {
+      resize: vertical;
+      min-height: 200px;
+    }
+  }
+
+  &__fileInput {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--blackColor);
+    position: relative;
+    margin-bottom: 30px;
+
+    &.fileover {
+      border-color: var(--primaryColor) !important;
+    }
+
+    .content {
+      text-align: center;
+      font-size: 26px;
+      line-height: 40px;
+
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .button {
+        color: var(--primaryColor);
+        font-weight: 600;
+      }
+
+      .field {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__multiselect {
+    &.ng-select {
+      padding-bottom: 0;
+
+      .ng-select-container {
+        &::after {
+          border-bottom-width: 2px;
+          border-color: var(--blackColor);
+        }
+        .ng-value-container {
+          .ng-input {
+            input {
+              font-size: 20px;
+            }
+          }
+          .ng-value {
+            .ng-value-label {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      &.ng-select-focused {
+        .ng-select-container {
+          &::after {
+            border-color: var(--primaryColor);
+          }
+          .ng-value-container {
+            .ng-placeholder {
+              color: var(--blackColor)
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    cursor: pointer;
+
+    svg {
+      fill: var(--secondaryColor);
+    }
+
+    &:hover {
+      svg {
+        fill: var(--primaryColor);
+      }
+    }
+  }
+
+  &__error {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--redishColor);
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+  }
+
+  &__help {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--grayColor);
+  }
+}
+
+// Responsive
+@media all and (max-width: 1280px) {
+  h2 { font-size: 2em; }
+}

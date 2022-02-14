@@ -1,0 +1,36 @@
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    padding: 20px 40px 40px;
+    max-width: 460px;
+    width: 90%;
+    background-color: var(--blackColor);
+    color: var(--secondaryColor);
+  }
+
+  &__title {
+    text-align: center;
+    color: var(--primaryColor);
+    margin-bottom: 10px;
+  }
+
+  &__form {
+    margin-bottom: 60px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

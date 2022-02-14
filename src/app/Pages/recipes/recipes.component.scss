@@ -1,0 +1,44 @@
+.page--recipes {
+  .grid-columns {
+    grid-template-columns: 0.4fr 2fr;
+  }
+
+  .addRecipeBtn {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .modal {
+    &__title {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 50px;
+      .button--transparentBackground {
+        font-size: 2em;
+      }
+
+    }
+    &__body {
+      padding: 50px;
+      .grid-columns {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &__footer {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 50px;
+
+    }
+  }
+}
