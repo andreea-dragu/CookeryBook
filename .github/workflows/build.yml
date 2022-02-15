@@ -35,4 +35,4 @@ jobs:
         EOF        
     - name: Build
       run: |
-        npm run build -- --prod
+        npm run build --configuration=production
