@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if ((this.loginForm.value.username === 'admin') && (this.loginForm.value.password === 'admin')) {
+    if ((this.loginForm.value.username === process.env.username) && (this.loginForm.value.password === process.env.password)) {
       localStorage.setItem("whoIsLogged", "administrator")
       this.router.navigate(['/'])
     }
