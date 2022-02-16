@@ -5,10 +5,10 @@
     "ng": "ng",
     "config": "ts-node set-env.ts",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run config && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "npm run config && ng deploy --base-href=/CookeryBook/ --no-silent"
+    "deploy": "ng deploy --base-href=/CookeryBook/ --no-silent"
   },
   "private": true,
   "dependencies": {
