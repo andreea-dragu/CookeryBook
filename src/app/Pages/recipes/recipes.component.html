@@ -1,5 +1,5 @@
 <div class="page page--recipes">
-  <app-hero [heroImages]="'../../assets/images/recipesHero.jpg'"> Recipes </app-hero>
+  <app-hero [heroImages]="'assets/images/recipesHero.jpg'"> Recipes </app-hero>
   <div class="page__content grid-columns">
     <section class="side-bar container">
       <app-button styleClasses="button--blackButton button--paddingMedium button--fullWidth" class="addRecipeBtn" type="button" *ngIf="isLogged" (click)="openModal = !openModal ">Add Recipe</app-button>

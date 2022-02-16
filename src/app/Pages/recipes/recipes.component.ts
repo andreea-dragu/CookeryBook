@@ -102,7 +102,7 @@ export class RecipesComponent implements OnInit {
 
       // Build the image if is not imagePath value
       let imageUrl
-      if( this.addRecipeForm.value.imagePath === '') { imageUrl = '../../assets/images/recipes/default-image.jpg'
+      if( this.addRecipeForm.value.imagePath === '') { imageUrl = 'assets/images/recipes/default-image.jpg'
       } else {
         imageUrl = this.addRecipeForm.value.imagePath
       }

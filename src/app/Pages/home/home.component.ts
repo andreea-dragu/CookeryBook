@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   sliderContent: any = [
     {
-      slideImgUrl: "../../assets/images/slider/categories.jpg",
+      slideImgUrl: "assets/images/slider/categories.jpg",
       section1: {
         title: this.lastCategory.name,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       },
     },
     {
-      slideImgUrl: "../../assets/images/slider/recipe.jpg",
+      slideImgUrl: "assets/images/slider/recipe.jpg",
       section1: {
         title: this.lastRecipe.name,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
       },
     },
     {
-      slideImgUrl: "../../assets/images/slider/about.jpg",
+      slideImgUrl: "assets/images/slider/about.jpg",
       section1: {
         title: "About",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
       },
     },
     {
-      slideImgUrl: "../../assets/images/slider/contact.jpg",
+      slideImgUrl: "assets/images/slider/contact.jpg",
       section1: {
         title: "Contact",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
