@@ -35,7 +35,6 @@ jobs:
         cat << EOF > .env
         username=${{ secrets.ADMIN_USERNAME }}
         password=${{ secrets.ADMIN_PASSWORD }}
-        GITHUB_TOKEN=${{ secrets.TOKEN_GITHUB_ACTION }}
         EOF
     
     - name: Build
@@ -46,18 +45,8 @@ jobs:
       id: changelog
       uses: TriPSs/conventional-changelog-action@v3
       with:
-        github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
-        output-file: "false"
-
-    - name: Create Release
-      uses: actions/create-release@v1
-      if: ${{ steps.changelog.outputs.skipped == 'false' }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
-      with:
-        tag_name: ${{ steps.changelog.outputs.tag }}
-        release_name: ${{ steps.changelog.outputs.tag }}
-        body: ${{ steps.changelog.outputs.clean_changelog }}        
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        output-file: "false"    
         
     - name: Deploy
       run: |
