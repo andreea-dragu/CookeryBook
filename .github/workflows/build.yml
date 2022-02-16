@@ -35,6 +35,12 @@ jobs:
         username=${{ secrets.ADMIN_USERNAME }}
         password=${{ secrets.ADMIN_PASSWORD }}
         EOF
+        
+    - name: Debug env file
+      run: |
+        echo "------------------------"
+        echo .env  
+        echo "------------------------"
     
     - name: Build
       run: |
