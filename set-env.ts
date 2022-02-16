@@ -7,6 +7,7 @@ const targetPath = './src/environments/environment.prod.ts';
 const envConfigFile = `export const environment = {
     username: '${process.env.username}',
     password: '${process.env.password}',
+    production: true
 };
 `;
 writeFile(targetPath, envConfigFile, function (err) {
