@@ -39,7 +39,7 @@ jobs:
     - name: Debug env file
       run: |
         echo "------------------------"
-        echo .env  
+        cat .env  
         echo "------------------------"
     
     - name: Build
