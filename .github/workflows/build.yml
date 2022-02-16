@@ -30,6 +30,10 @@ jobs:
       run: |
         npm i
         
+    - name: Create Docs folder
+      run: |
+        mkdir docs
+        
     - name: Create env file
       run: |
         cat << EOF > .env
@@ -39,7 +43,12 @@ jobs:
     
     - name: Build
       run: |
-        npm run build --configuration=production    
+        npm run build --configuration=production   
+        
+    - name: Debug
+      run: |
+        cd mkdir
+        ls -a
         
     - name: Conventional Changelog Action
       id: changelog
