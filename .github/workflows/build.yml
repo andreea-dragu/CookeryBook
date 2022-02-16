@@ -36,10 +36,6 @@ jobs:
         username=${{ secrets.ADMIN_USERNAME }}
         password=${{ secrets.ADMIN_PASSWORD }}
         EOF
-        
-    - name: Create docs folder
-      run: |
-        mkdir docs
     
     - name: Build
       run: |
