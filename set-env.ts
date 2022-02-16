@@ -2,7 +2,7 @@ import { writeFile } from 'fs';
 // Configure Angular `environment.ts` file path
 const targetPath = './src/environments/environment.ts';
 // Load node modules
-require('dotenv').load();
+require('dotenv').config();
 // `environment.ts` file structure
 const envConfigFile = `export const environment = {
     username: '${process.env.username}',
