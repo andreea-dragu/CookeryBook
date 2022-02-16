@@ -106,7 +106,11 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "baseHref": "https://andreea-dragu.github.io/CookeryBook/",
+            "name": "Andreea Dragu",
+            "email": "a.dragu93@gmail.com"
+          }
         }        
       }
     }
