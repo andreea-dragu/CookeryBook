@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
+    "config": "ts-node set-env.ts",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=/CookeryBook/ --no-silent"
+    "deploy": "npm run config && ng deploy --base-href=/CookeryBook/ --no-silent"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ts-node": "~10.5.0",
     "typescript": "~4.3.5"
   }
 }
