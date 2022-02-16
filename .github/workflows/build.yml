@@ -26,9 +26,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         
-    - name: Install Dependencies        
+    - name: Install Dependencies & angular-cli-ghpages       
       run: |
         npm i
+        npm i angular-cli-ghpages
         
     - name: Create env file
       run: |
@@ -43,8 +44,8 @@ jobs:
     
     - name: Build
       run: |
-        npm run build --configuration=production
+        npm run build --configuration=production      
         
     - name: Deploy
       run: |
-        npm run deploy
+        ng deploy --base-href=/CookeryBook/
