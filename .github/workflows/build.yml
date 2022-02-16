@@ -47,8 +47,8 @@ jobs:
         
     - name: Debug
       run: |
-        cd mkdir
-        ls -a
+        cd docs
+        ls -l
         
     - name: Conventional Changelog Action
       id: changelog
