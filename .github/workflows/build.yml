@@ -35,7 +35,12 @@ jobs:
         cat << EOF > .env
         username=${{ secrets.ADMIN_USERNAME }}
         password=${{ secrets.ADMIN_PASSWORD }}
-        EOF        
+        EOF
+        
+    - name: Create docs folder
+      run: |
+        mkdir docs
+    
     - name: Build
       run: |
         npm run build --configuration=production
