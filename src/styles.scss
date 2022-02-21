@@ -23,13 +23,12 @@ $ng-select-secondary-text: var(--blackColor) !default;
 
 body {
   width: 100%;
-  height: 100%;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   background: var(--secondaryColor);
   font-size: 1.1em;
-  padding-bottom: 100px;
+  padding-bottom: 90px;
 }
 
 a { text-decoration: none; }
@@ -41,11 +40,10 @@ h2 { font-size: 2.5em; }
 h3 { font-size: 2em; }
 h4 { font-size: 1.3em; }
 
-
 .title {
   margin-bottom: 20px;
   color: var(--primaryColor);
-  text-shadow: 2px 2px var(--blackColor);
+  text-shadow: 2px 1px var(--blackColor);
 }
 
 .subtitle {
@@ -76,13 +74,6 @@ h4 { font-size: 1.3em; }
 .grid-columns {
   width: 100%;
   display: grid;
-  grid-auto-flow: column;
-  gap: 50px;
-}
-
-.grid-two-columns {
-  width: 100%;
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
@@ -90,6 +81,11 @@ h4 { font-size: 1.3em; }
 .flex-align-items {
   display: flex;
   align-items: center;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .image {
@@ -104,7 +100,6 @@ h4 { font-size: 1.3em; }
   height: 18px;
   margin-right: 5px;
 }
-
 
 // Form Add Recipe and Login
 
@@ -145,7 +140,6 @@ h4 { font-size: 1.3em; }
       border-color: var(--primaryColor);
     }
 
-    // &:valid + .form__label,
     &:focus + .form__label,
     &.ng-touched + .form__label {
       top: 0;
@@ -276,5 +270,25 @@ h4 { font-size: 1.3em; }
 
 // Responsive
 @media all and (max-width: 1280px) {
+  body { font-size: 1em; }
+  h1 { font-size: 2.5em; }
   h2 { font-size: 2em; }
+  .grid-columns {
+    justify-content: center;
+    grid-template-columns: none;
+  }
+}
+
+@media all and (max-width: 980px) {
+  body { font-size: 0.8em; }
+  .image { max-width: 100%; }
+}
+
+@media all and (max-width: 700px) {
+  .grid-columns { gap: 30px; }
+}
+
+@media all and (max-width: 480px) {
+  .title { margin-bottom: 10px; }
+  .text { line-height: 20px; }
 }

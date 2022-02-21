@@ -1,7 +1,7 @@
 <div class="page page--categories">
   <app-hero [heroImages]="'../../../assets/images/categoriesHero.jpg'"> Categories </app-hero>
   <div class="page__content">
-    <section class="categories grid-two-columns">
+    <section class="categories grid-columns">
       <div class="category"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.479)), url({{category.imgPath}});"
         [ngClass]="{'odd': category.id%2 === 0, 'even': category.id%2 !== 0}"

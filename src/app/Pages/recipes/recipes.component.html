@@ -1,23 +1,27 @@
 <div class="page page--recipes">
   <app-hero [heroImages]="'../../assets/images/recipesHero.jpg'"> Recipes </app-hero>
   <div class="page__content grid-columns">
-    <section class="side-bar container">
+    <!-- Side Bar -->
+    <section class="side-bar">
       <app-button styleClasses="button--blackButton button--paddingMedium button--fullWidth" class="addRecipeBtn" type="button" *ngIf="isLogged" (click)="openModal = !openModal ">Add Recipe</app-button>
         <app-filter [filterItems]="categories" [filterName]="'category'" (click)="filterRecipeBy('categoryId', $event)"></app-filter>
         <app-filter [filterItems]="difficulties" [filterName]="'difficulty'" (click)="filterRecipeBy('difficultyId', $event)"></app-filter>
         <app-filter [filterItems]="recipes | uniqueValue:'time'" [filterName]="'time'" (click)="filterRecipeBy('time', $event)"></app-filter>
     </section>
-    <app-data-iterator [items]="filteredRecipes" [grid]="true" [customGrid]="true" [repeatColGrid]="auto_fill"
-    [objectProperties]="objectProperties">
-      <ng-template #customGridTemplate let-item>
-        <app-recipe-item (deleteEvent)="onDeleteRecipe($event)" [item]="item" [adminPermission]="isLogged"></app-recipe-item>
-      </ng-template>
-    </app-data-iterator>
+    <!-- Data Iterator -->
+    <section class="data-iterator">
+      <app-data-iterator [items]="filteredRecipes" [grid]="true" [customGrid]="true"
+      [objectProperties]="objectProperties">
+        <ng-template #customGridTemplate let-item>
+          <app-recipe-item (deleteEvent)="onDeleteRecipe($event)" [item]="item" [adminPermission]="isLogged"></app-recipe-item>
+        </ng-template>
+      </app-data-iterator>
+    </section>
     <!-- Modal -->
     <app-modal class="modal" *ngIf="openModal === true" [size]="'full'" >
       <div header class="modal__header">
         <div class="modal__title">Add Recipe</div>
-        <app-button styleClasses="button--mixedButton button--paddingSmall" type="button" (click)="openModal = false">X</app-button>
+        <app-button styleClasses="button--mixedButton button--paddingSmall button--noBoxShadow" type="button" (click)="openModal = false">X</app-button>
       </div>
       <div body class="modal__body">
         <div class="body">
@@ -107,8 +111,8 @@
         </div>
       </div>
       <div footer class="modal__footer">
-        <app-button styleClasses="button--redishButton button--paddingMedium" type="button" (click)="openModal = false">Cancel</app-button>
-        <app-button styleClasses="button--mixedButton button--paddingMedium" type="submit" (click)="onSubmit()" [disabled]="!addRecipeForm.valid">Submit</app-button>
+        <app-button styleClasses="button--redishButton button--paddingMedium button--noBoxShadow" type="button" (click)="openModal = false">Cancel</app-button>
+        <app-button styleClasses="button--mixedButton button--paddingMedium button--noBoxShadow" type="submit" (click)="onSubmit()" [disabled]="!addRecipeForm.valid">Submit</app-button>
       </div>
     </app-modal>
   </div>

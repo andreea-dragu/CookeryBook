@@ -86,6 +86,10 @@
     }
   }
 
+  &--noBoxShadow {
+    box-shadow: none;
+  }
+
   &--fullWidth {
     width: 100%;
   }
@@ -106,18 +110,21 @@
 // Responsive
 @media all and (max-width: 1280px) {
   .button {
-    font-size: 0.8em;
-
-    &--paddingMedium {
-      padding: 8px 14px;
-    }
+    &--paddingMedium { padding: 8px 14px; }
   }
 }
 
 @media all and (max-width: 980px) {
   .button {
-    &--paddingBox {
-      padding: 10px;
+    &--paddingBox { padding: 10px; }
+  }
+}
+
+@media all and (max-width: 480px) {
+  .button {
+    padding: 6px;
+    &--paddingSmall {
+      padding: 6px 12px;
     }
   }
 }

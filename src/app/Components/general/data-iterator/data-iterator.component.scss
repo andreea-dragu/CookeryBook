@@ -1,7 +1,6 @@
 .data-iterator {
   margin: 0 auto;
   display: grid;
-  padding: 0 50px;
 
   &__header {
     display: flex;
@@ -9,6 +8,7 @@
     margin-bottom: 50px;
 
     .sort {
+      display: flex;
       &__by, &__option {
         padding: 6px;
         box-shadow: 2px 2px 3px var(--grayColor);
@@ -20,14 +20,40 @@
 
         &:focus { outline: none; }
       }
+
+      &__direction {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 26px;
+        height: 35px;
+        padding-bottom: 4px;
+        background: var(--secondaryColor);
+        box-shadow: 2px 2px 3px var(--grayColor);
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+
+        &:hover {
+          background: var(--blackColor);
+          color: var(--primaryColor);
+          svg {fill: var(--primaryColor);}
+        }
+
+        &.active, &:hover.active {
+          background: var(--primaryColor);
+          svg {fill: var(--blackColor);}
+        }
+      }
     }
 
     .search {
-      box-sizing: border-box;
-      position: relative;
+      display: flex;
 
       &__icon {
-        font-size: 1.5em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -35,13 +61,16 @@
         height: 35px;
         padding-bottom: 4px;
         background: var(--primaryColor);
-        position: absolute;
-        top: 0;
-        left: 0;
+        box-shadow: 2px 2px 3px var(--grayColor);
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
       }
 
       &__input {
-        padding: 6px 6px 6px 46px;
+        padding: 6px;
         font-size: 1.1em;
         border: none;
         background: var(--secondaryColor);
@@ -64,6 +93,8 @@
     .grid {
       display: grid;
       gap: 40px;
+      justify-content: space-between;
+      grid-template-columns: repeat(3, 1fr);
 
       &__noResults {
         text-align: center;
@@ -82,6 +113,12 @@
       justify-content: right;
       text-align: right;
       align-items: center;
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
       .page-info {
         box-shadow: 2px 2px 3px var(--grayColor);
@@ -110,6 +147,99 @@
   }
 }
 
+// Responsive
+@media all and (max-width: 1366px) {
+  .data-iterator {
+    &__content {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  }
+}
+
+@media all and (max-width: 980px) {
+  .data-iterator {
+    &__content {
+      .grid { grid-template-columns: repeat(1, 1fr); }
+    }
+    &__footer {
+      .pagination {
+        &__info {
+          .page-info, .select-items {
+            padding: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .data-iterator {
+    &__header {
+      display: block;
+      margin-bottom: 30px;
+      .sort {
+        margin-bottom: 20px;
+        &__by, &__option  {
+          width: 100%;
+        }
+      }
+
+      .search {
+        &__input {
+          width: 100%;
+        }
+      }
+    }
+
+    &__footer {
+      .pagination {
+        display: block;
+        margin: 0 0 0 auto;
+
+        &__info {
+          margin-bottom: 20px;
+
+          .page-info {
+            font-size: 1.2em;
+            padding: 6px 20px;
+            text-align: center;
+          }
+
+          .select-items {
+            padding: 6px 20px;
+          }
+        }
+
+        .navigation {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 480px) {
+  .data-iterator {
+    &__footer {
+      .pagination {
+        &__info {
+          gap: 10px;
+          .page-info {
+            font-size: 1em;
+            padding: 4px;
+            text-align: center;
+          }
+
+          .select-items {
+            padding: 4px;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
