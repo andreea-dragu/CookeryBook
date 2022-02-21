@@ -12,6 +12,7 @@
 
 # profiling files
 chrome-profiler-events*.json
+/src/polyfills.ts
 
 # IDEs and editors
 /.idea
