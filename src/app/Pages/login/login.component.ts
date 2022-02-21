@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if ((this.loginForm.value.username === environment.username) && (this.loginForm.value.password === environment.password)) {
       localStorage.setItem("whoIsLogged", "administrator")
-      this.router.navigate(['/'])
+      this.router.navigate(['/recipes'])
     } else {
       console.log(this.loginForm.value)
       console.log(environment.username, typeof environment.username)
