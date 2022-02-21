@@ -15,3 +15,12 @@
     line-height: 1;
   }
 }
+
+
+// Responsive
+@media all and (max-width: 700px) {
+  .hero {
+    height: 110px;
+    margin-bottom: 30px;
+  }
+}

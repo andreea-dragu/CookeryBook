@@ -1,7 +1,16 @@
 .page--recipes {
   .grid-columns {
-    grid-template-columns: 0.4fr 2fr;
+    grid-template-columns: 0.22fr 1fr;
+    max-width: 1900px;
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
   }
+
+  // .side-bar, .data-iterator {
+  //   margin: 0 auto;
+  //   width: 90%;
+  // }
 
   .addRecipeBtn {
     display: block;
@@ -23,12 +32,13 @@
       .button--transparentBackground {
         font-size: 2em;
       }
-
     }
+
     &__body {
       padding: 50px;
       .grid-columns {
         grid-template-columns: repeat(4, 1fr);
+        width: 100%;
       }
     }
 
@@ -39,6 +49,65 @@
       align-items: center;
       padding: 0px 50px;
 
+    }
+  }
+}
+
+// Responsive
+@media all and (max-width: 1600px) {
+  .page--recipes {
+    .grid-columns { grid-template-columns: 0.16fr 1fr;}
+  }
+}
+@media all and (max-width: 1366px) {
+  .page--recipes {
+    .grid-columns { grid-template-columns: 0.2fr 1fr;}
+  }
+}
+
+@media all and (max-width: 980px) {
+  .page--recipes {
+    .grid-columns { grid-template-columns: 0.4fr 1fr; }
+
+    .modal {
+      &__body {
+        .grid-columns {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 480px) {
+  .page--recipes {
+    .grid-columns {
+      grid-template-columns: 0.1fr 1fr;
+      gap: 20px;
+    }
+
+    .modal {
+      &__title {
+        font-size: 2em;
+      }
+
+
+      &__header {
+        padding: 0 20px;
+      }
+
+      &__body {
+        padding: 20px;
+
+        .grid-columns {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      &__footer {
+        padding: 0 20px;
+        font-size: 1.3em;
+      }
     }
   }
 }

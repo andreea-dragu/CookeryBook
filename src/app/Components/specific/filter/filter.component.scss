@@ -34,8 +34,8 @@
         position: absolute;
         content: '🗸';
         top: -13px;
-        left: -3px;
-        font-size: 1.6em;
+        left: 0;
+        font-size: 1.4em;
         opacity: 0;
       }
 
@@ -55,7 +55,35 @@
     }
 
   }
+}
 
+// Responsive
+
+@media all and (max-width:980px) {
+  .filter {
+    .checkbox {
+      &__input {
+
+        &::before {
+          top: -10px;
+          font-size: 1.6em;
+        }
+      }
+    }
+  }
+
+}
+
+@media all and (max-width: 480px) {
+  .filter {
+    margin-bottom: 40px;
+
+    &__title { font-size: 1.6em; }
+
+    .checkbox {
+      &__text { font-size: 0.8em; }
+    }
+  }
 }
 
 
