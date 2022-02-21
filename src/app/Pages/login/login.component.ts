@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -23,9 +24,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if ((this.loginForm.value.username === 'admin') && (this.loginForm.value.password === 'admin')) {
+    if ((this.loginForm.value.username === environment.username) && (this.loginForm.value.password === environment.password)) {
       localStorage.setItem("whoIsLogged", "administrator")
       this.router.navigate(['/'])
+    } else {
+      console.log(this.loginForm.value)
+      console.log(environment.username, typeof environment.username)
+      console.log(environment.password, typeof environment.password)
     }
   }
 

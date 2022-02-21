@@ -9,7 +9,7 @@ export class RecipeService {
     {
       id: 0,
       name: 'Pizza',
-      imagePath: '../../assets/images/recipes/Pizza.jpg',
+      imagePath: 'assets/images/recipes/Pizza.jpg',
       categoryId: 6,
       difficultyId: 1,
       time: 20,
@@ -19,7 +19,7 @@ export class RecipeService {
     {
       id: 1,
       name: 'Tasty Schnitzel',
-      imagePath: '../../assets/images/recipes/TastySchnitzel.jpg',
+      imagePath: 'assets/images/recipes/TastySchnitzel.jpg',
       categoryId: 3,
       difficultyId: 2,
       time: 30,
@@ -29,7 +29,7 @@ export class RecipeService {
     {
       id: 2,
       name: 'Tasty Big Fat Burger',
-      imagePath: '../../assets/images/recipes/TastyBigFatBurger.jpg',
+      imagePath: 'assets/images/recipes/TastyBigFatBurger.jpg',
       categoryId: 3,
       difficultyId: 3,
       time: 50,
@@ -39,7 +39,7 @@ export class RecipeService {
     {
       id: 3,
       name: 'Hot Spinach',
-      imagePath: '../../assets/images/recipes/HotSpinach.jpg',
+      imagePath: 'assets/images/recipes/HotSpinach.jpg',
       categoryId: 1,
       difficultyId: 2,
       time: 30,
@@ -49,7 +49,7 @@ export class RecipeService {
     {
       id: 4,
       name: 'Chicken Noodle Soup',
-      imagePath: '../../assets/images/recipes/ChickenNoodleSoup.jpg',
+      imagePath: 'assets/images/recipes/ChickenNoodleSoup.jpg',
       categoryId: 2,
       difficultyId: 1,
       time: 20,
@@ -59,7 +59,7 @@ export class RecipeService {
     {
       id: 5,
       name: 'Chocolate Cake',
-      imagePath: '../../assets/images/recipes/ChocolateCake.jpg',
+      imagePath: 'assets/images/recipes/ChocolateCake.jpg',
       categoryId: 9,
       difficultyId: 3,
       time: 60,
@@ -69,7 +69,7 @@ export class RecipeService {
     {
       id: 6,
       name: 'Easy Meatloaf',
-      imagePath: '../../assets/images/recipes/EasyMeatloaf.jpg',
+      imagePath: 'assets/images/recipes/EasyMeatloaf.jpg',
       categoryId: 3,
       difficultyId: 2,
       time: 30,
@@ -79,7 +79,7 @@ export class RecipeService {
     {
       id: 7,
       name: 'Roasted Vegetables',
-      imagePath: '../../assets/images/recipes/RoastedVegetables.jpg',
+      imagePath: 'assets/images/recipes/RoastedVegetables.jpg',
       categoryId: 4,
       difficultyId: 1,
       time: 20,
@@ -89,7 +89,7 @@ export class RecipeService {
     {
       id: 8,
       name: 'Gingery Carrot Salad',
-      imagePath: '../../assets/images/recipes/GingeryCarrotSalad.jpg',
+      imagePath: 'assets/images/recipes/GingeryCarrotSalad.jpg',
       categoryId: 7,
       difficultyId: 1,
       time: 10,
@@ -99,7 +99,7 @@ export class RecipeService {
     {
       id: 9,
       name: 'Guacamole',
-      imagePath: '../../assets/images/recipes/Guacamole.jpg',
+      imagePath: 'assets/images/recipes/Guacamole.jpg',
       categoryId: 10,
       difficultyId: 1,
       time: 10,

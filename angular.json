@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FinalCookeryBookScss": {
+    "CookeryBook": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/FinalCookeryBookScss",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -40,13 +40,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "FinalCookeryBookScss:build:production"
+              "browserTarget": "CookeryBook:build:production"
             },
             "development": {
-              "browserTarget": "FinalCookeryBookScss:build:development"
+              "browserTarget": "CookeryBook:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FinalCookeryBookScss:build"
+            "browserTarget": "CookeryBook:build"
           }
         },
         "test": {
@@ -103,9 +103,17 @@
             ],
             "scripts": []
           }
-        }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://andreea-dragu.github.io/CookeryBook/",
+            "name": "Andreea Dragu",
+            "email": "a.dragu93@gmail.com"
+          }
+        }        
       }
     }
   },
-  "defaultProject": "FinalCookeryBookScss"
+  "defaultProject": "CookeryBook"
 }
