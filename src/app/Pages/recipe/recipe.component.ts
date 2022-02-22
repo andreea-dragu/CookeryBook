@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Ingredient } from 'src/app/__Models/ingredient';
-import { Recipe } from 'src/app/__Models/recipe';
-import { CategoryService } from 'src/app/__Services/category.service';
-import { DifficultyService } from 'src/app/__Services/difficulty.service';
-import { IngredientService } from 'src/app/__Services/ingredient.service';
-import { RecipeService } from 'src/app/__Services/recipe.service';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, Params } from '@angular/router'
+import { Ingredient } from 'src/app/__Models/ingredient'
+import { Recipe } from 'src/app/__Models/recipe'
+import { CategoryService } from 'src/app/__Services/category.service'
+import { DifficultyService } from 'src/app/__Services/difficulty.service'
+import { IngredientService } from 'src/app/__Services/ingredient.service'
+import { RecipeService } from 'src/app/__Services/recipe.service'
 
 
 @Component({

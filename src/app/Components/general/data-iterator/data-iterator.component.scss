@@ -9,7 +9,8 @@
 
     .sort {
       display: flex;
-      &__by, &__option {
+      &__by,
+      &__option {
         padding: 6px;
         box-shadow: 2px 2px 3px var(--grayColor);
         font-size: 1em;
@@ -18,7 +19,9 @@
         background: var(--secondaryColor);
         border: none;
 
-        &:focus { outline: none; }
+        &:focus {
+          outline: none;
+        }
       }
 
       &__direction {
@@ -40,12 +43,17 @@
         &:hover {
           background: var(--blackColor);
           color: var(--primaryColor);
-          svg {fill: var(--primaryColor);}
+          svg {
+            fill: var(--primaryColor);
+          }
         }
 
-        &.active, &:hover.active {
+        &.active,
+        &:hover.active {
           background: var(--primaryColor);
-          svg {fill: var(--blackColor);}
+          svg {
+            fill: var(--blackColor);
+          }
         }
       }
     }
@@ -76,10 +84,18 @@
         background: var(--secondaryColor);
         box-shadow: 2px 2px 3px var(--grayColor);
 
-        &::-webkit-input-placeholder { color: var(--blackColor); }
-        &::-moz-placeholder { color: var(--blackColor); }
-        &:-ms-input-placeholder { color: var(--blackColor); }
-        &:-moz-placeholder { color: var(--blackColor); }
+        &::-webkit-input-placeholder {
+          color: var(--blackColor);
+        }
+        &::-moz-placeholder {
+          color: var(--blackColor);
+        }
+        &:-ms-input-placeholder {
+          color: var(--blackColor);
+        }
+        &:-moz-placeholder {
+          color: var(--blackColor);
+        }
 
         &:focus {
           outline: none;
@@ -151,7 +167,9 @@
 @media all and (max-width: 1366px) {
   .data-iterator {
     &__content {
-      .grid { grid-template-columns: repeat(2, 1fr); }
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 }
@@ -159,12 +177,15 @@
 @media all and (max-width: 980px) {
   .data-iterator {
     &__content {
-      .grid { grid-template-columns: repeat(1, 1fr); }
+      .grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
     &__footer {
       .pagination {
         &__info {
-          .page-info, .select-items {
+          .page-info,
+          .select-items {
             padding: 6px;
           }
         }
@@ -180,7 +201,8 @@
       margin-bottom: 30px;
       .sort {
         margin-bottom: 20px;
-        &__by, &__option  {
+        &__by,
+        &__option {
           width: 100%;
         }
       }
@@ -240,19 +262,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,7 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router, Event } from '@angular/router';
-import { AuthService } from 'src/app/__Services/auth.service';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout'
+import { Component, OnInit } from '@angular/core'
+import { NavigationStart, Router, Event } from '@angular/router'
+import { AuthService } from 'src/app/__Services/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -21,8 +21,8 @@ export class HeaderComponent implements OnInit {
   ) {
 
     this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationStart) { this.currentUrl = event.url; }
-    });
+      if (event instanceof NavigationStart) { this.currentUrl = event.url }
+    })
   }
 
   ngOnInit(): void {

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Category } from 'src/app/__Models/category';
-import { Difficulty } from 'src/app/__Models/difficulty';
-import { Ingredient } from 'src/app/__Models/ingredient';
-import { Recipe } from 'src/app/__Models/recipe';
-import { AuthService } from 'src/app/__Services/auth.service';
-import { CategoryService } from 'src/app/__Services/category.service';
-import { DifficultyService } from 'src/app/__Services/difficulty.service';
-import { IngredientService } from 'src/app/__Services/ingredient.service';
-import { RecipeService } from 'src/app/__Services/recipe.service';
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, Validators } from '@angular/forms'
+import { Category } from 'src/app/__Models/category'
+import { Difficulty } from 'src/app/__Models/difficulty'
+import { Ingredient } from 'src/app/__Models/ingredient'
+import { Recipe } from 'src/app/__Models/recipe'
+import { AuthService } from 'src/app/__Services/auth.service'
+import { CategoryService } from 'src/app/__Services/category.service'
+import { DifficultyService } from 'src/app/__Services/difficulty.service'
+import { IngredientService } from 'src/app/__Services/ingredient.service'
+import { RecipeService } from 'src/app/__Services/recipe.service'
 
 @Component({
   selector: 'app-recipes',
@@ -31,7 +31,7 @@ export class RecipesComponent implements OnInit {
   openModal = false
   isLogged: boolean = false
 
-  filters: {[key: string]: number[]} = {};
+  filters: {[key: string]: number[]} = {}
   filteredRecipes: Recipe[] = []
 
   constructor(

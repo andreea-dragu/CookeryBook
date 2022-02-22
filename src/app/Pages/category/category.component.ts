@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Category } from 'src/app/__Models/category';
-import { Recipe } from 'src/app/__Models/recipe';
-import { CategoryService } from 'src/app/__Services/category.service';
-import { DifficultyService } from 'src/app/__Services/difficulty.service';
-import { RecipeService } from 'src/app/__Services/recipe.service';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, Params } from '@angular/router'
+import { Recipe } from 'src/app/__Models/recipe'
+import { CategoryService } from 'src/app/__Services/category.service'
+import { RecipeService } from 'src/app/__Services/recipe.service'
 
 
 @Component({
   selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  templateUrl: './category.component.html'
 })
 export class CategoryComponent implements OnInit {
   id!: number
@@ -41,7 +38,6 @@ export class CategoryComponent implements OnInit {
       }
     )
     this.filteredRecipes = this.recipes.filter((item:any) => item.categoryId === this.id )
-
   }
 }
 

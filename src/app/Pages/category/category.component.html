@@ -2,7 +2,7 @@
   <app-hero [heroImages]="imgCategory"> {{category}} </app-hero>
   <div class="page__content">
     <app-data-iterator [items]="filteredRecipes" [grid]="true" [customGrid]="true" [repeatColGrid]="auto_fill"
-    [objectProperties]="objectProperties">
+      [objectProperties]="objectProperties">
       <ng-template #customGridTemplate let-item>
         <app-recipe-item [item]="item" [adminPermission]="isLogged"></app-recipe-item>
       </ng-template>
