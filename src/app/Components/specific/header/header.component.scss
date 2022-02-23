@@ -36,9 +36,10 @@
     border-bottom: 4px solid transparent;
     text-shadow: 2px 1px var(--blackColor);
 
-    &.active-link, &:hover {
+    &.active-link,
+    &:hover {
       color: var(--secondaryColor);
-      border-bottom-color: var(--secondaryColor)
+      border-bottom-color: var(--secondaryColor);
     }
   }
 
@@ -78,13 +79,12 @@
 }
 // END-- Home Header
 
-
 // Responsive Header
 @media all and (max-width: 1280px) {
   .navigation {
     &__item {
       font-size: 1em;
-      margin: 0 10px
+      margin: 0 10px;
     }
   }
 }
@@ -102,7 +102,9 @@
       cursor: pointer;
       z-index: 11;
 
-      &:hover,&:focus, &:active {
+      &:hover,
+      &:focus,
+      &:active {
         div {
           background: var(--secondaryColor);
         }
@@ -113,7 +115,9 @@
         width: 100%;
         background: var(--primaryColor);
         margin-bottom: 6px;
-        &:last-child { margin-bottom: 0;}
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
 
       svg {

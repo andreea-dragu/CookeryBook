@@ -3,25 +3,31 @@
   <div class="page__content grid-columns">
     <!-- Side Bar -->
     <section class="side-bar">
-      <app-button styleClasses="button--blackButton button--paddingMedium button--fullWidth" class="addRecipeBtn" type="button" *ngIf="isLogged" (click)="openModal = !openModal ">Add Recipe</app-button>
-        <app-filter [filterItems]="categories" [filterName]="'category'" (click)="filterRecipeBy('categoryId', $event)"></app-filter>
-        <app-filter [filterItems]="difficulties" [filterName]="'difficulty'" (click)="filterRecipeBy('difficultyId', $event)"></app-filter>
-        <app-filter [filterItems]="recipes | uniqueValue:'time'" [filterName]="'time'" (click)="filterRecipeBy('time', $event)"></app-filter>
+      <app-button styleClasses="button--blackButton button--paddingMedium button--fullWidth" class="addRecipeBtn"
+        type="button" *ngIf="isLogged" (click)="openModal = !openModal ">Add Recipe</app-button>
+      <app-filter [filterItems]="categories" [filterName]="'category'" (click)="filterRecipeBy('categoryId', $event)">
+      </app-filter>
+      <app-filter [filterItems]="difficulties" [filterName]="'difficulty'"
+        (click)="filterRecipeBy('difficultyId', $event)"></app-filter>
+      <app-filter [filterItems]="recipes | uniqueValue:'time'" [filterName]="'time'"
+        (click)="filterRecipeBy('time', $event)"></app-filter>
     </section>
     <!-- Data Iterator -->
     <section class="data-iterator">
       <app-data-iterator [items]="filteredRecipes" [grid]="true" [customGrid]="true"
-      [objectProperties]="objectProperties">
+        [objectProperties]="objectProperties">
         <ng-template #customGridTemplate let-item>
-          <app-recipe-item (deleteEvent)="onDeleteRecipe($event)" [item]="item" [adminPermission]="isLogged"></app-recipe-item>
+          <app-recipe-item (deleteEvent)="onDeleteRecipe($event)" [item]="item" [adminPermission]="isLogged">
+          </app-recipe-item>
         </ng-template>
       </app-data-iterator>
     </section>
     <!-- Modal -->
-    <app-modal class="modal" *ngIf="openModal === true" [size]="'full'" >
+    <app-modal class="modal" *ngIf="openModal === true" [size]="'full'">
       <div header class="modal__header">
         <div class="modal__title">Add Recipe</div>
-        <app-button styleClasses="button--mixedButton button--paddingSmall button--noBoxShadow" type="button" (click)="openModal = false">X</app-button>
+        <app-button styleClasses="button--mixedButton button--paddingSmall button--noBoxShadow" type="button"
+          (click)="openModal = false">X</app-button>
       </div>
       <div body class="modal__body">
         <div class="body">
@@ -30,7 +36,8 @@
             <div class="grid-columns">
               <!-- Name Field -->
               <div class="form__field">
-                <input class="form__input form__input--reverseColor" type="text" id="name" formControlName="name" autocomplete="off">
+                <input class="form__input form__input--reverseColor" type="text" id="name" formControlName="name"
+                  autocomplete="off">
                 <label class="form__label" for="name">Name</label>
 
                 <span class="form__error" *ngIf="!name?.valid && (name?.dirty ||name?.touched)">*
@@ -59,13 +66,15 @@
                   <option [value]="difficulty.id" *ngFor="let difficulty of difficulties"> {{difficulty.name}} </option>
                 </select>
 
-                <span class="form__error" *ngIf="!difficultyId?.valid && (difficultyId?.dirty ||difficultyId?.touched)">*
+                <span class="form__error"
+                  *ngIf="!difficultyId?.valid && (difficultyId?.dirty ||difficultyId?.touched)">*
                   <span *ngIf="difficultyId?.errors?.['required']">Difficulty field is required</span>
                 </span>
               </div>
               <!-- Time Field -->
               <div class="form__field">
-                <input class="form__input form__input--reverseColor" type="number" id="time" name="time" formControlName="time" min="10" max="2000" autocomplete="off">
+                <input class="form__input form__input--reverseColor" type="number" id="time" name="time"
+                  formControlName="time" min="10" max="2000" autocomplete="off">
                 <label class="form__label" for="time">Time</label>
 
                 <span class="form__error" *ngIf="!time?.valid && (time?.dirty ||time?.touched)">*
@@ -77,42 +86,42 @@
             </div>
             <!-- Image Field -->
             <div class="form__field">
-              <input class="form__input form__input--reverseColor" type="text" id="imagePath" formControlName="imagePath" autocomplete="off">
+              <input class="form__input form__input--reverseColor" type="text" id="imagePath"
+                formControlName="imagePath" autocomplete="off">
               <label class="form__label" for="imagePath">Image Url</label>
             </div>
             <!-- Ingredients Field -->
             <div class="form__field">
-              <ng-select
-                class="form__multiselect"
-                [items]="ingredients"
-                bindLabel="name"
-                bindValue="id"
-                placeholder="Select Ingredients"
-                appendTo="body"
-                [multiple]="true"
-                formControlName="ingredientsIds">
+              <ng-select class="form__multiselect" [items]="ingredients" bindLabel="name" bindValue="id"
+                placeholder="Select Ingredients" appendTo="body" [multiple]="true" formControlName="ingredientsIds">
               </ng-select>
-              <span class="form__error" *ngIf="!ingredientsIds?.valid && (ingredientsIds?.dirty ||ingredientsIds?.touched)">*
+              <span class="form__error"
+                *ngIf="!ingredientsIds?.valid && (ingredientsIds?.dirty ||ingredientsIds?.touched)">*
                 <span *ngIf="ingredientsIds?.errors?.['required']">You must select some ingredients</span>
               </span>
             </div>
             <!-- Preparation Field -->
             <div class="form__field">
-              <textarea class="form__input form__input--reverseColor form__input--typeTextarea" id="preparation" name="preparation" formControlName="preparation"></textarea>
+              <textarea class="form__input form__input--reverseColor form__input--typeTextarea" id="preparation"
+                name="preparation" formControlName="preparation"></textarea>
               <label class="form__label" for="preparation">Preparation</label>
 
               <span class="form__error" *ngIf="!preparation?.valid && (preparation?.dirty ||preparation?.touched)">*
                 <span *ngIf="preparation?.errors?.['required']">Preparation field is required</span>
-                <span *ngIf="preparation?.errors?.['minlength']">Preparation field must have at least 2 characters</span>
-                <span *ngIf="preparation?.errors?.['maxlength']">Preparation field must be at least 5000 characters long.</span>
+                <span *ngIf="preparation?.errors?.['minlength']">Preparation field must have at least 2
+                  characters</span>
+                <span *ngIf="preparation?.errors?.['maxlength']">Preparation field must be at least 5000 characters
+                  long.</span>
               </span>
             </div>
           </form>
         </div>
       </div>
       <div footer class="modal__footer">
-        <app-button styleClasses="button--redishButton button--paddingMedium button--noBoxShadow" type="button" (click)="openModal = false">Cancel</app-button>
-        <app-button styleClasses="button--mixedButton button--paddingMedium button--noBoxShadow" type="submit" (click)="onSubmit()" [disabled]="!addRecipeForm.valid">Submit</app-button>
+        <app-button styleClasses="button--redishButton button--paddingMedium button--noBoxShadow" type="button"
+          (click)="openModal = false">Cancel</app-button>
+        <app-button styleClasses="button--mixedButton button--paddingMedium button--noBoxShadow" type="submit"
+          (click)="onSubmit()" [disabled]="!addRecipeForm.valid">Submit</app-button>
       </div>
     </app-modal>
   </div>

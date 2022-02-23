@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router, Event } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { NavigationStart, Router, Event } from '@angular/router'
 
 @Component({
   selector: 'app-footer',
@@ -8,11 +8,12 @@ import { NavigationStart, Router, Event } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
   currentUrl = ''
+  date =  new Date().getFullYear()
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        this.currentUrl = event.url;
+        this.currentUrl = event.url
       }
     });
   }

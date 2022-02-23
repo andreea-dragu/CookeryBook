@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-slider',
@@ -8,12 +8,11 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 export class SliderComponent implements OnInit {
   @Input() sliderData: any = []
 
-  state: number = 0;
+  state: number = 0
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onNavigationSlider(direction: string) {
     if(this.state === 0 && direction === 'prev' ) return this.state = this.sliderData.length-1
@@ -24,12 +23,8 @@ export class SliderComponent implements OnInit {
     } else if(direction === 'next') {
       this.state++
     }
-
     return this.state
   }
 
-  onNavigateTo(slideId: number) {
-    return this.state = slideId;
-  }
-
+  onNavigateTo(slideId: number) { return this.state = slideId }
 }

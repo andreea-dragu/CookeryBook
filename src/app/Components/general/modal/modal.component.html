@@ -1,4 +1,5 @@
-<div class="modal" [ngClass]=" {'modal--small' : size === 'small', 'modal--large' : size === 'large', 'modal--full' : size === 'full'} ">
+<div class="modal"
+  [ngClass]=" {'modal--small' : size === 'small', 'modal--large' : size === 'large', 'modal--full' : size === 'full'} ">
   <div class="modal__content">
     <div class="modal__header">
       <ng-content select="[header]"></ng-content>
@@ -11,4 +12,3 @@
     </div>
   </div>
 </div>
-

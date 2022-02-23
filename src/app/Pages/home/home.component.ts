@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/__Models/category';
-import { Recipe } from 'src/app/__Models/recipe';
-import { CategoryService } from 'src/app/__Services/category.service';
-import { RecipeService } from 'src/app/__Services/recipe.service';
+import { Component, OnInit } from '@angular/core'
+import { Category } from 'src/app/__Models/category'
+import { Recipe } from 'src/app/__Models/recipe'
+import { CategoryService } from 'src/app/__Services/category.service'
+import { RecipeService } from 'src/app/__Services/recipe.service'
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   lastCategory: Category = this.categoryService.getLastCategory()
@@ -89,6 +88,5 @@ export class HomeComponent implements OnInit {
     private categoryService : CategoryService,
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

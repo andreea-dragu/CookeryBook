@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/__Models/category';
-import { CategoryService } from 'src/app/__Services/category.service';
+import { Component, OnInit } from '@angular/core'
+import { Category } from 'src/app/__Models/category'
+import { CategoryService } from 'src/app/__Services/category.service'
 
 @Component({
   selector: 'app-categories',
@@ -14,7 +14,5 @@ export class CategoriesComponent implements OnInit {
     private categoriesService:CategoryService
   ) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

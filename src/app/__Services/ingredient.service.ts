@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Ingredient } from '../__Models/ingredient';
+import { Injectable } from '@angular/core'
+import { Ingredient } from '../__Models/ingredient'
 
 @Injectable({
   providedIn: 'root'
@@ -30,17 +30,10 @@ export class IngredientService {
   constructor() { }
 
   getIngredients() {
-    return this.ingredients.slice();
+    return this.ingredients.slice()
   }
 
   getIngredient(id: number) {
-    return this.ingredients[id];
+    return this.ingredients[id]
   }
-
-  // addIngredient(ingredient: Ingredient){
-  //   this.ingredients.push(ingredient);
-  // }
-  // addIngredients(ingredients: Ingredient[]) {
-  //   this.ingredients.push(...ingredients);
-  // }
 }

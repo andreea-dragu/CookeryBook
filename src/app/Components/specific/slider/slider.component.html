@@ -1,14 +1,20 @@
 <div class="slider">
   <div class="slider__direction">
-    <svg class="prev" (click)="onNavigationSlider('prev')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>
-    <svg class="next" (click)="onNavigationSlider('next')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+    <svg class="prev" (click)="onNavigationSlider('prev')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+    </svg>
+    <svg class="next" (click)="onNavigationSlider('next')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+    </svg>
   </div>
 
-  <section class="slider__slide" [ngClass]="{ 'single' : sliderData[state].section2.type === 'image'}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.767)), url({{sliderData[state].slideImgUrl}}); ">
+  <section class="slider__slide" [ngClass]="{ 'single' : sliderData[state].section2.type === 'image'}"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0.767)), url({{sliderData[state].slideImgUrl}}); ">
     <div class="innerSlide innerSlide--section1">
       <h2 class="title">{{sliderData[state].section1.title}}</h2>
       <p class="innerSlide__text">{{sliderData[state].section1.description}}</p>
-      <app-button styleClasses="button--primaryButton button--paddingMedium" type="button" [routerLink]="sliderData[state].section1.button.url">{{sliderData[state].section1.button.name}}</app-button>
+      <app-button styleClasses="button--primaryButton button--paddingMedium" type="button"
+        [routerLink]="sliderData[state].section1.button.url">{{sliderData[state].section1.button.name}}</app-button>
     </div>
 
     <div *ngIf=" sliderData[state].section2.type !== 'image' " class="divider"></div>
@@ -16,17 +22,17 @@
     <div class="innerSlide innerSlide--section2" *ngIf=" sliderData[state].section2.type === 'content'">
       <h2 class="title">{{sliderData[state].section2.title}}</h2>
       <p class="innerSlide__text">{{sliderData[state].section2.description}}</p>
-      <app-button styleClasses="button--primaryButton button--paddingMedium" type="button" [routerLink]="sliderData[state].section2.button.url" >{{sliderData[state].section2.button.name}}</app-button>
+      <app-button styleClasses="button--primaryButton button--paddingMedium" type="button"
+        [routerLink]="sliderData[state].section2.button.url">{{sliderData[state].section2.button.name}}</app-button>
     </div>
   </section>
 
   <div class="slider__navigation">
     <div class="list grid-columns">
       <div *ngFor="let item of sliderData; index as i;">
-        <app-button styleClasses="button--secondaryButton button--paddingBox" type="button" [isActive]="true ? i === state : false" (click)="onNavigateTo(i)"></app-button>
+        <app-button styleClasses="button--secondaryButton button--paddingBox" type="button"
+          [isActive]="true ? i === state : false" (click)="onNavigateTo(i)"></app-button>
       </div>
     </div>
   </div>
 </div>
-
-
