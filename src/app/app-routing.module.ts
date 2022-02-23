@@ -10,7 +10,6 @@ import { RecipeComponent } from './Pages/recipe/recipe.component'
 import { RecipesComponent } from './Pages/recipes/recipes.component'
 import { PreventLoggedInAccessGuard } from './_Guards/prevent-logged-in-access.guard'
 
-
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [PreventLoggedInAccessGuard]},
