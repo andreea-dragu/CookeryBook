@@ -25,11 +25,15 @@ export class DataIteratorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.objectProperties)
+  }
 
   getTotalPagesNumber(filteredItemsLength: number) { return Math.ceil(filteredItemsLength / this.items_per_page) }
 
-  onChangeSortDirection(value: string) { this.sortDirection = value }
+  onChangeSortDirection(value: string) {
+    this.sortDirection = value
+  }
 
   changePage(direction: string, filteredItemsLength: number) {
     if (direction === 'nextPage') {

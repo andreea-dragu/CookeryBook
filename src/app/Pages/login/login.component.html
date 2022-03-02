@@ -16,7 +16,7 @@
         <input class="form__input" [type]="showPassword ? 'text' : 'password'" id="password" name="password"
           formControlName="password" autocomplete="off" required>
         <label class="form__label" for="password">Password</label>
-        <span class="form__error form__error--longText"
+        <span class="form__error"
           *ngIf="!password?.valid && (password?.dirty ||password?.touched)">*
           <span *ngIf="password?.errors?.['required']">Password field is required</span>
           <span *ngIf="password!.errors?.['pattern']">Your password must contain minimum 8 characters, at least one

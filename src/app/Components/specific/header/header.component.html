@@ -29,8 +29,7 @@
       </svg> Log out</app-button>
   </nav>
   <div class="mobileNavigation" *ngIf="showContainer">
-    <a class="mobileNavigation__logo" routerLink="/" (click)="showMobileMenu = false"><img class="logo"
-        src="assets/images/cookeryBook.png" alt="logo"></a>
+    <a class="mobileNavigation__logo" routerLink="/" (click)="showMobileMenu = false"><img class="logo" src="assets/images/cookeryBook.png" alt="logo"></a>
     <div class="mobileNavigation__hamburger" (click)="showMobileMenu = !showMobileMenu">
       <ng-container *ngIf="showMobileMenu === false">
         <div></div>
@@ -38,10 +37,7 @@
         <div></div>
       </ng-container>
       <ng-container *ngIf="showMobileMenu === true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path
-            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"> <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" /> </svg>
       </ng-container>
     </div>
   </div>

@@ -26,7 +26,20 @@ export class RecipesComponent implements OnInit {
 
   auto_fit: string = 'auto-fit'
   auto_fill: string = 'auto-fill'
-  objectProperties: any[] = ['difficulty', 'time', 'name']
+  objectProperties: any[] = [
+    {
+      key: 'difficultyId',
+      value: 'Difficulty'
+    },
+    {
+      key: 'time',
+      value: 'Time'
+    },
+    {
+      key: 'name',
+      value: 'Name'
+    },
+  ]
 
   openModal = false
   isLogged: boolean = false
