@@ -7,7 +7,8 @@ import { RecipeService } from 'src/app/__Services/recipe.service'
 
 @Component({
   selector: 'app-category',
-  templateUrl: './category.component.html'
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
   id!: number
@@ -17,9 +18,22 @@ export class CategoryComponent implements OnInit {
   filteredRecipes:Recipe[] = []
 
   isLogged: boolean = false
-  objectProperties:any[]= ['difficulty', 'time', 'name']
   auto_fit: string = 'auto-fit'
   auto_fill: string = 'auto-fill'
+  objectProperties: any[] = [
+    {
+      key: 'difficultyId',
+      value: 'Difficulty'
+    },
+    {
+      key: 'time',
+      value: 'Time'
+    },
+    {
+      key: 'name',
+      value: 'Name'
+    },
+  ]
 
   constructor(
     private categoryService: CategoryService,

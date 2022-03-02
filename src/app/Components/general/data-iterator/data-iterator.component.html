@@ -4,17 +4,15 @@
     <header class="data-iterator__header">
       <div class="sort">
         <select class="sort__by" [(ngModel)]="sortBy">
-          <option class="sort__option" *ngFor="let key of objectProperties" value="{{key}}">{{key |titlecase}}</option>
+          <option class="sort__option" *ngFor="let objectProperty of objectProperties" value="{{objectProperty.key}}"> {{objectProperty.value}} </option>
         </select>
         <span class="sort__direction" type="button" [class.active]="sortDirection === 'ascending'"
           (click)="onChangeSortDirection('ascending')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-            fill-rule="evenodd" clip-rule="evenodd">
-            <path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z" />
+            fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"/>
           </svg></span>
         <span class="sort__direction" type="button" [class.active]="sortDirection === 'descending'"
           (click)="onChangeSortDirection('descending')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-            fill-rule="evenodd" clip-rule="evenodd">
-            <path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" />
+            fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/>
           </svg></span>
       </div>
       <div class="search">
@@ -29,13 +27,13 @@
         <table class="table">
           <thead class="table__head">
             <tr class="table__head__items">
-              <th class="table__head__item" *ngFor="let key of objectProperties">{{ key |titlecase }}</th>
+              <th class="table__head__item" *ngFor="let objectProperty of objectProperties">{{ objectProperty.value }}</th>
             </tr>
           </thead>
           <tbody class="table__body" *ngIf="result.length > 0; else noResults">
             <tr class="table__body__items"
               *ngFor="let item of result | sort: sortBy: sortDirection | pagination: current_page: items_per_page">
-              <td class="table__body__item" *ngFor="let key of objectProperties">{{ item[key] }}</td>
+              <td class="table__body__item" *ngFor="let objectProperty of objectProperties">{{ item[objectProperty.key] }}</td>
             </tr>
           </tbody>
           <ng-template #noResults>
@@ -48,9 +46,9 @@
           <div class="grid__item"
             *ngFor="let item of result | sort: sortBy: sortDirection | pagination: current_page: items_per_page">
             <ng-container *ngIf="!customGrid">
-              <div *ngFor="let key of objectProperties">
-                {{key |titlecase}} :
-                {{ item[key] }}
+              <div *ngFor="let objectProperty of objectProperties">
+                {{objectProperty.value }} :
+                {{ item[objectProperty.key] }}
               </div>
             </ng-container>
             <ng-container *ngIf="customGrid">

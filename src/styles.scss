@@ -9,10 +9,12 @@ $ng-select-secondary-text: var(--blackColor) !default;
   --primaryColor: #DDA300;
   --secondaryColor: #F5DAB6;
   --blackColor: #000000;
+  --blackColorRgb: 0, 0, 0;
   --whiteColor: #FFFFFF;
   --grayColor: #545454;
+  --grayColorRgb: 44, 44, 44;
   --redishColor: #922F15;
-  --brownColor: #5A3B01;
+  --brownColor: #20190c;
 }
 
 * {
@@ -23,6 +25,7 @@ $ng-select-secondary-text: var(--blackColor) !default;
 
 body {
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -105,7 +108,7 @@ h4 { font-size: 1.3em; }
 .form {
   &__field {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 26px;
   }
 
   &__label {
@@ -255,13 +258,7 @@ h4 { font-size: 1.3em; }
     font-size: 12px;
     font-weight: bold;
     color: var(--redishColor);
-    position: absolute;
-    bottom: -18px;
-    left: 0;
 
-    &--longText {
-      bottom: -52px;
-    }
   }
 
   &__help {
@@ -277,7 +274,6 @@ h4 { font-size: 1.3em; }
   h1 { font-size: 2.5em; }
   h2 { font-size: 2em; }
   .grid-columns {
-    justify-content: center;
     grid-template-columns: none;
   }
 }

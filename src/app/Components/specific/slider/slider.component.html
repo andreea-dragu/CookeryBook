@@ -13,7 +13,7 @@
     <div class="innerSlide innerSlide--section1">
       <h2 class="title">{{sliderData[state].section1.title}}</h2>
       <p class="innerSlide__text">{{sliderData[state].section1.description}}</p>
-      <app-button styleClasses="button--primaryButton button--paddingMedium" type="button"
+      <app-button styleClasses="button--primaryButton button--paddingMedium button--noBoxShadow" type="button"
         [routerLink]="sliderData[state].section1.button.url">{{sliderData[state].section1.button.name}}</app-button>
     </div>
 
@@ -22,7 +22,7 @@
     <div class="innerSlide innerSlide--section2" *ngIf=" sliderData[state].section2.type === 'content'">
       <h2 class="title">{{sliderData[state].section2.title}}</h2>
       <p class="innerSlide__text">{{sliderData[state].section2.description}}</p>
-      <app-button styleClasses="button--primaryButton button--paddingMedium" type="button"
+      <app-button styleClasses="button--primaryButton button--paddingMedium button--noBoxShadow" type="button"
         [routerLink]="sliderData[state].section2.button.url">{{sliderData[state].section2.button.name}}</app-button>
     </div>
   </section>
@@ -30,7 +30,7 @@
   <div class="slider__navigation">
     <div class="list grid-columns">
       <div *ngFor="let item of sliderData; index as i;">
-        <app-button styleClasses="button--secondaryButton button--paddingBox" type="button"
+        <app-button styleClasses="button--secondaryButton button--paddingBox button--noBoxShadow" type="button"
           [isActive]="true ? i === state : false" (click)="onNavigateTo(i)"></app-button>
       </div>
     </div>
