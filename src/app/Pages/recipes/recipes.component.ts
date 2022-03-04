@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { Category } from 'src/app/__Models/category'
 import { Difficulty } from 'src/app/__Models/difficulty'
@@ -15,7 +15,7 @@ import { RecipeService } from 'src/app/__Services/recipe.service'
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss']
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent implements OnInit, OnDestroy {
   // General Declarations
   recipes: Recipe[] = this.recipeService.getRecipes()
   categories: Category[] = this.categoryService.getCategories()
@@ -47,6 +47,8 @@ export class RecipesComponent implements OnInit {
   filters: {[key: string]: number[]} = {}
   filteredRecipes: Recipe[] = []
 
+  updateListIngredients!:any
+
   constructor(
     private recipeService: RecipeService,
     private categoryService: CategoryService,
@@ -59,6 +61,14 @@ export class RecipesComponent implements OnInit {
   ngOnInit(): void {
     this.filteredRecipes = this.recipeService.getRecipes()
     this.isLogged = this.authService.checkIfIsAuthenticated()
+
+    this.updateListIngredients = this.ingredientService.changedIngredients
+      .subscribe(
+        (ingredients: Ingredient[]) => this.ingredients = ingredients )
+  }
+
+  ngOnDestroy(): void {
+    this.updateListIngredients.unsubscribe()
   }
 
   // Delete Recipe Form Builder

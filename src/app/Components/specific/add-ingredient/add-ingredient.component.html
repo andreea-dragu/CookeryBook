@@ -1,0 +1,37 @@
+<div class="add-ingredient">
+  <div class="add-ingredient__openModal">
+    <app-button class="add-ingredient__button" styleClasses="button--primaryButton button--paddingSmall button--round" (click)="openModal = true"> + </app-button>
+    <p class="add-ingredient__text">Add Ingredient</p>
+  </div>
+  <app-modal class="modal" *ngIf="openModal === true" [size]="'small'">
+    <div header class="modal__header">
+      <div class="modal__title text--bold">Add Ingredient</div>
+      <app-button styleClasses="button--mixedButton button--paddingSmall button--noBoxShadow" type="button"
+        (click)="closeModal()">X</app-button>
+    </div>
+    <div body class="modal__body">
+
+        <form class="form" [formGroup]="addIngredientForm" (ngSubmit)="onSubmit()">
+            <!-- Name Field -->
+            <div class="form__field">
+              <input class="form__input form__input--reverseColor" type="text" id="name" formControlName="name"
+                autocomplete="off">
+              <label class="form__label" for="name">Name</label>
+
+              <span class="form__error" *ngIf="!name?.valid && (name?.dirty ||name?.touched)">*
+                <span *ngIf="name?.errors?.['required']">Name field is required</span>
+                <span *ngIf="name?.errors?.['minlength']">Name field must have at least 2 characters</span>
+                <span *ngIf="name?.errors?.['maxlength']">Name field must be at least 40 characters long.</span>
+              </span>
+            </div>
+        </form>
+
+    </div>
+    <div footer class="modal__footer">
+      <app-button styleClasses="button--redishButton button--paddingMedium button--noBoxShadow" type="button"
+        (click)="closeModal()">Cancel</app-button>
+      <app-button styleClasses="button--mixedButton button--paddingMedium button--noBoxShadow" type="submit"
+        (click)="onSubmit()" [disabled]="!addIngredientForm.valid">Submit</app-button>
+    </div>
+  </app-modal>
+</div>

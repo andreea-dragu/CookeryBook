@@ -1,0 +1,39 @@
+.add-ingredient {
+  // position: relative;
+  &__openModal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0 0 0;
+  }
+
+  &__button {
+    margin-right: 10px;
+  }
+
+  .modal {
+
+    &__header, &__footer { margin: 10px 20px; }
+    &__header, &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__body {
+      width: 90%;
+      margin: 0 auto;
+      height: 100%;
+
+      .form {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        &__field {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
