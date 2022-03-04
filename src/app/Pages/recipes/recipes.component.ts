@@ -145,6 +145,13 @@ export class RecipesComponent implements OnInit, OnDestroy {
       this.recipes = this.recipeService.getRecipes()
       this.filteredRecipes = this.recipeService.getRecipes()
       this.openModal = false
+      this.addRecipeForm.reset()
     }
+  }
+
+// Close Modal
+  closeModal() {
+    this.openModal = false
+    this.addRecipeForm.reset()
   }
 }

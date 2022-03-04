@@ -27,7 +27,7 @@
       <div header class="modal__header">
         <div class="modal__title">Add Recipe</div>
         <app-button styleClasses="button--mixedButton button--paddingSmall button--noBoxShadow" type="button"
-          (click)="openModal = false">X</app-button>
+          (click)="closeModal()">X</app-button>
       </div>
       <div body class="modal__body">
         <div class="body">
@@ -119,7 +119,7 @@
       </div>
       <div footer class="modal__footer">
         <app-button styleClasses="button--redishButton button--paddingMedium button--noBoxShadow" type="button"
-          (click)="openModal = false">Cancel</app-button>
+          (click)="closeModal()">Cancel</app-button>
         <app-button styleClasses="button--mixedButton button--paddingMedium button--noBoxShadow" type="submit"
           (click)="onSubmit()" [disabled]="!addRecipeForm.valid">Submit</app-button>
       </div>

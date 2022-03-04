@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/__Models/ingredient';
 import { IngredientService } from 'src/app/__Services/ingredient.service';
@@ -8,16 +8,22 @@ import { IngredientService } from 'src/app/__Services/ingredient.service';
   templateUrl: './add-ingredient.component.html',
   styleUrls: ['./add-ingredient.component.scss']
 })
-export class AddIngredientComponent implements OnInit {
+export class AddIngredientComponent implements OnInit, OnDestroy {
   openModal = false
   ingredients: Ingredient[] = this.ingredientService.getIngredients()
 
   constructor(
     private ingredientService: IngredientService,
     private formBuilder: FormBuilder,
-  ) { }
+    private renderer: Renderer2
+  )
+  { this.renderer.addClass(document.body, 'overflowHidden') }
 
   ngOnInit(): void { }
+
+  ngOnDestroy(): void {
+    this.renderer.removeClass(document.body, 'overflowHidden')
+  }
 
   addIngredientForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],

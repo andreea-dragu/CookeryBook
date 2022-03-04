@@ -32,6 +32,10 @@ body {
   background: var(--secondaryColor);
   font-size: 1.1em;
   padding-bottom: 90px;
+
+  &.overflowHidden {
+    overflow: hidden;
+  }
 }
 
 a { text-decoration: none; }
