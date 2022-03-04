@@ -26,7 +26,8 @@ import { FooterComponent } from './Components/specific/footer/footer.component'
 import { HeaderComponent } from './Components/specific/header/header.component'
 import { HeroComponent } from './Components/specific/hero/hero.component'
 import { SliderComponent } from './Components/specific/slider/slider.component'
-import { RecipeItemComponent } from './Components/specific/recipe-item/recipe-item.component'
+import { RecipeItemComponent } from './Components/specific/recipe-item/recipe-item.component';
+import { AddIngredientComponent } from './Components/specific/add-ingredient/add-ingredient.component'
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { RecipeItemComponent } from './Components/specific/recipe-item/recipe-it
     UniqueValuePipe,
     LoginComponent,
     RecipeItemComponent,
+    AddIngredientComponent,
   ],
   imports: [
     BrowserModule,

@@ -76,6 +76,12 @@
     }
   }
 
+  &--round {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+
   &--transparentIcon {
     color: var(--secondaryColor);
     background: none;

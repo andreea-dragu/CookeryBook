@@ -92,13 +92,13 @@
             </div>
             <!-- Ingredients Field -->
             <div class="form__field">
-              <ng-select class="form__multiselect" [items]="ingredients" bindLabel="name" bindValue="id"
-                placeholder="Select Ingredients" appendTo="body" [multiple]="true" formControlName="ingredientsIds">
+              <ng-select class="form__multiselect" [items]="ingredients" bindLabel="name" bindValue="id" placeholder="Select Ingredients" appendTo="body" [multiple]="true" formControlName="ingredientsIds">
               </ng-select>
               <span class="form__error"
                 *ngIf="!ingredientsIds?.valid && (ingredientsIds?.dirty ||ingredientsIds?.touched)">*
                 <span *ngIf="ingredientsIds?.errors?.['required']">You must select some ingredients</span>
               </span>
+              <app-add-ingredient></app-add-ingredient>
             </div>
             <!-- Preparation Field -->
             <div class="form__field">

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs'
 import { Ingredient } from '../__Models/ingredient'
 
 @Injectable({
   providedIn: 'root'
 })
 export class IngredientService {
+
+  changedIngredients = new Subject<Ingredient[]>()
 
   ingredients: Ingredient[] = [
     { id: 0, name: 'Bread' },
@@ -34,6 +37,17 @@ export class IngredientService {
   }
 
   getIngredient(id: number) {
-    return this.ingredients[id]
+    return this.ingredients.filter(item => item.id === id)[0]
   }
+
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients = [...this.ingredients, ingredient]
+    this.changedIngredients.next(this.ingredients.slice())
+  }
+
+  getLastIngredient() {
+    const ingredients = this.getIngredients()
+    return ingredients[ingredients.length-1]
+  }
+
 }
