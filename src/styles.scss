@@ -15,6 +15,14 @@ $ng-select-secondary-text: var(--blackColor) !default;
   --grayColorRgb: 44, 44, 44;
   --redishColor: #922F15;
   --brownColor: #20190c;
+  --dangerBackground: #f7b8a8;
+  --dangerColor: #a72605;
+  --successBackground: #dafcda;
+  --successColor: #038d03;
+  --warningBackground: #fcf1da;
+  --warningColor: #ad4306;
+  --infoBackground: #daf4fc;
+  --infoColor: #06518f;
 }
 
 * {
@@ -32,6 +40,10 @@ body {
   background: var(--secondaryColor);
   font-size: 1.1em;
   padding-bottom: 90px;
+
+  &.overflowHidden {
+    overflow: hidden;
+  }
 }
 
 a { text-decoration: none; }
@@ -102,6 +114,24 @@ h4 { font-size: 1.3em; }
   width: 18px;
   height: 18px;
   margin-right: 5px;
+}
+
+//ScrollBar
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--whiteColor);
+  box-shadow: inset 2px 0px 2px 0px rgba(var(--blackColorRgb), 0.247);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grayColor);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blackColor);
 }
 
 // Form Add Recipe and Login

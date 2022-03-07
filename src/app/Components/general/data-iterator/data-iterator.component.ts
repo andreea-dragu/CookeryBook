@@ -26,7 +26,6 @@ export class DataIteratorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.objectProperties)
   }
 
   getTotalPagesNumber(filteredItemsLength: number) { return Math.ceil(filteredItemsLength / this.items_per_page) }

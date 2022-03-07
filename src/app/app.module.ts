@@ -28,6 +28,7 @@ import { HeroComponent } from './Components/specific/hero/hero.component'
 import { SliderComponent } from './Components/specific/slider/slider.component'
 import { RecipeItemComponent } from './Components/specific/recipe-item/recipe-item.component';
 import { AddIngredientComponent } from './Components/specific/add-ingredient/add-ingredient.component'
+import { NotificationComponent } from './Components/general/notification/notification.component'
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AddIngredientComponent } from './Components/specific/add-ingredient/add
     LoginComponent,
     RecipeItemComponent,
     AddIngredientComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

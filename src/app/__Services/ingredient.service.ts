@@ -50,4 +50,9 @@ export class IngredientService {
     return ingredients[ingredients.length-1]
   }
 
+  deleteIngredient(id: number) {
+    this.ingredients = this.ingredients.filter(ingredient => ingredient.id !== id)
+    return this.ingredients
+  }
+
 }

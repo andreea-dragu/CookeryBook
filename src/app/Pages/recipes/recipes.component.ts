@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { Category } from 'src/app/__Models/category'
 import { Difficulty } from 'src/app/__Models/difficulty'
@@ -56,6 +56,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
     private difficultyService: DifficultyService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -69,6 +70,16 @@ export class RecipesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.updateListIngredients.unsubscribe()
+  }
+
+  showHideModal() {
+    this.openModal = !this.openModal
+    if (this.openModal === true) {
+      this.renderer.addClass(document.body, 'overflowHidden')
+    } else {
+      this.renderer.removeClass(document.body, 'overflowHidden')
+      this.addRecipeForm.reset()
+    }
   }
 
   // Delete Recipe Form Builder
@@ -144,7 +155,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
       this.recipeService.addRecipe(newRecipe)
       this.recipes = this.recipeService.getRecipes()
       this.filteredRecipes = this.recipeService.getRecipes()
-      this.openModal = false
+      this.showHideModal()
     }
   }
 }
