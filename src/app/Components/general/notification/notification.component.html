@@ -1,0 +1,9 @@
+<div class="notification">
+  <div class="notification_content notification--{{styleClass}}" *ngIf="notificationButton || notificationOnTiming">
+    <h4 class="notification_message">{{messageNotification}}</h4>
+    <div class="notification_button" *ngIf="notificationButton">
+      <app-button type="button" styleClasses="button--redishButton button--paddingSmall" (click)="this.notificationButton = false"> X </app-button>
+    </div>
+  </div>
+</div>
+

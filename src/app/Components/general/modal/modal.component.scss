@@ -69,24 +69,6 @@
   }
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--whiteColor);
-  box-shadow: inset 2px 0px 2px 0px rgba(var(--blackColorRgb), 0.247);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--grayColor);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--blackColor);
-}
-
-
 //Responsive
 
 @media all and (max-width:480px) {

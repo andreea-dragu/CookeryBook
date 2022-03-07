@@ -29,9 +29,10 @@
     width: 100%;
     height: 100vh;
     box-sizing: content-box;
-    margin: -90px auto -66px;
+    margin: -112px auto -66px;
     z-index: 1;
     min-height: 900px;
+    max-height: 100%;
     overflow: hidden;
     overflow-y: auto;
     position: relative;
@@ -86,12 +87,6 @@
 
 // Responsive
 @media all and (max-width: 1280px) {
-  .slider {
-    &__slide {
-      min-height: 800px;
-    }
-  }
-
   .innerSlide {
     .title {
       margin-bottom: 10px;
@@ -106,6 +101,9 @@
 
 @media all and (max-width: 980px) {
   .slider {
+    &__slide {
+      margin: -90px auto -64px;
+    }
     &__direction {
       .prev, .next {
         top: 48vh;

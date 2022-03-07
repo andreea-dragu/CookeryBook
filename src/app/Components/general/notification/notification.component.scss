@@ -1,0 +1,39 @@
+.notification {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &_content {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &--danger {
+    background: var(--dangerBackground);
+    color: var(--dangerColor);
+  }
+
+  &--success {
+    background: var(--successBackground);
+    color: var(--successColor);
+  }
+
+  &--warning {
+    background: var(--warningBackground);
+    color: var(--warningColor);
+  }
+
+  &--info {
+    background: var(--infoBackground);
+    color: var(--infoColor);
+  }
+}

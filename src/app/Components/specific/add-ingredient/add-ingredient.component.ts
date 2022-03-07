@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/__Models/ingredient';
 import { IngredientService } from 'src/app/__Services/ingredient.service';
 
@@ -8,22 +8,22 @@ import { IngredientService } from 'src/app/__Services/ingredient.service';
   templateUrl: './add-ingredient.component.html',
   styleUrls: ['./add-ingredient.component.scss']
 })
-export class AddIngredientComponent implements OnInit, OnDestroy {
-  openModal = false
+export class AddIngredientComponent implements OnInit {
+  openModalIngredient = false
   ingredients: Ingredient[] = this.ingredientService.getIngredients()
+  notificationOnTiming = false
+  messageNotificationDanger = "This ingredient already exist in list of ingredients"
+
+  // error:boolean = false
 
   constructor(
     private ingredientService: IngredientService,
     private formBuilder: FormBuilder,
-    private renderer: Renderer2
-  )
-  { this.renderer.addClass(document.body, 'overflowHidden') }
+
+  )  {}
+
 
   ngOnInit(): void { }
-
-  ngOnDestroy(): void {
-    this.renderer.removeClass(document.body, 'overflowHidden')
-  }
 
   addIngredientForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
@@ -31,21 +31,45 @@ export class AddIngredientComponent implements OnInit, OnDestroy {
 
   get name() { return this.addIngredientForm.get('name') }
 
-  onSubmit() {
+  onSubmitIngredient() {
     if(this.addIngredientForm.valid) {
+      let error
       let newIngredient = {
         id: this.ingredientService.getLastIngredient().id + 1,
-        name: this.addIngredientForm.value.name,
+        name: this.capitalize(this.addIngredientForm.value.name),
       }
-      this.ingredientService.addIngredient(newIngredient)
-      this.ingredients = this.ingredientService.getIngredients()
-      this.openModal = false
-      this.addIngredientForm.reset()
+
+      this.ingredients.filter( ingredient => {
+        if(ingredient.name === newIngredient.name) {
+          error = true
+          console.log('error = true', error)
+        }
+      })
+
+      if (error === true) {
+        this.notificationSetTiming()
+      } else {
+        this.ingredientService.addIngredient(newIngredient)
+        this.ingredients = this.ingredientService.getIngredients()
+        this.openModalIngredient = false
+        this.addIngredientForm.reset()
+      }
     }
   }
 
-  closeModal() {
-    this.openModal = false
+  closeModalAddIngredient() {
+    this.openModalIngredient = false
     this.addIngredientForm.reset()
+  }
+
+  capitalize(string:string) {
+    const firstLetter = string.charAt(0)
+    const restOfString = string.substring(1)
+    return firstLetter.toUpperCase() + restOfString
+  }
+
+  notificationSetTiming() {
+    this.notificationOnTiming = true
+    setTimeout(() => { this.notificationOnTiming = false}, 3000)
   }
 }
